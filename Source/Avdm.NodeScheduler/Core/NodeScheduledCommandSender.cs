@@ -1,4 +1,5 @@
 ﻿using System;
+using Avdm.NetTp.Messaging;
 using Quartz;
 using StructureMap;
 
@@ -8,7 +9,7 @@ namespace Avdm.Scheduler.Core
     {
         public void Execute( IJobExecutionContext context )
         {
-            var bus = ObjectFactory.GetInstance<INodeMessageBus>();
+            var bus = ObjectFactory.GetInstance<INetTpMessageBus>();
 
             var missedTriggerAction = (MissedTriggerAction)Enum.Parse( typeof( MissedTriggerAction ), context.JobDetail.JobDataMap["#missedTriggerAction"].ToString() );
             var previousJobRunningAction = (PreviousJobRunningAction)Enum.Parse( typeof( PreviousJobRunningAction ), context.JobDetail.JobDataMap["#previousJobRunningAction"].ToString() );

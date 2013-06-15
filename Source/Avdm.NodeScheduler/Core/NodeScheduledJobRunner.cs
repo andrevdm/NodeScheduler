@@ -1,4 +1,6 @@
 ﻿using System;
+using Avdm.NetTp.Messaging;
+using StructureMap;
 
 namespace Avdm.Scheduler.Core
 {
@@ -29,7 +31,7 @@ namespace Avdm.Scheduler.Core
 
         public NodeScheduledJobListener()
         {
-            var bus = ObjectFactory.GetInstance<INodeMessageBus>();
+            var bus = ObjectFactory.GetInstance<INetTpMessageBus>();
             bus.SubscribeToCommand<ScheduledJobCommandMessage>( 
                 "NodeScheduledJobListener", 
                 Environment.MachineName,

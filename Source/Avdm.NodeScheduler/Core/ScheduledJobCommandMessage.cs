@@ -1,6 +1,8 @@
-﻿namespace Avdm.Scheduler.Core
+﻿using Avdm.NetTp.Messaging;
+
+namespace Avdm.Scheduler.Core
 {
-    public class ScheduledJobCommandMessage : NodeCommandMessage
+    public class ScheduledJobCommandMessage : NetTpCommandMessage
     {
         public ScheduledJobCommandMessage( MissedTriggerAction missedTriggerAction, PreviousJobRunningAction previousJobRunningAction, string jobToRun, string runOn )
         {
